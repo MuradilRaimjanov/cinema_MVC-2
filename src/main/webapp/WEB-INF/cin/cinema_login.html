@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>new login cinema</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-color: black; background-image: url(https://phonoteka.org/uploads/posts/2021-06/1624034251_57-phonoteka_org-p-oboi-na-rabochii-stol-kosmos-krasivo-59.jpg)">
+<div  style="width: 500px; height: 300px; margin-top: 500px; margin-left: 300px">
+<form
+        th:method="post"
+        th:action="@{/cinema/save_cinema}"
+        th:object="${cinema}"
+       >
+    <div class="form-group">
+        <label for="1"><strong>Name of cinema</strong></label>
+        <input th:field="${cinema.name}" type="text" class="form-control" id="1" aria-describedby="emailHelp" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="2" ><strong>Address of cinema</strong></label>
+        <input th:field="${cinema.address}" type="text" class="form-control" id="2" placeholder="Address">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>movie</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<table class="table" style="width: 500px; height: 300px; margin-top: 200px; margin-left: 250px">
+    <thead>
+    <tr>
+        <th scope="col"><b>ID</b></th>
+        <th scope="col"><b>NAME</b></th>
+        <th scope="col"><b>START</b></th>
+        <th scope="col"><b>FINISH</b></th>
+        <th scope="col"><b>MOVIE</b></th>
+        <th scope="col"><b>ROOM</b></th>
+        <th>
+            <a class="btn btn-primary" th:href="save" role="button" >AddCinema</a>
+        </th>
+        <th>
+            <a href="search">
+                <button type="button" class="btn btn-outline-info">search</button>
+            </a>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="session:${all_session}">
+        <td th:text="${session.id}"></td>
+        <td th:text="${session.name}"></td>
+        <td th:text="${session.getStart()}"></td>
+        <td th:text="${session.getFinish()}"></td>
+        <td th:text="${session.movie}"></td>
+        <td th:text="${session.rooms}"></td>
+        <td><a class="btn btn-primary" th:href="@{/session/find_by_id/{id}(id=${session.id})}" role="button" >Enter</a></td>
+        <!--        <td><a class="btn btn-danger" th:href="@{/cinema/update_cinema/{id}(id=${cinema.id})}" role="button" >del</a></td>-->
+    </tr>
+
+    </tbody>
+
+</table>
+
+</body>
+</html>
