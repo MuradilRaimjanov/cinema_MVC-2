@@ -23,7 +23,7 @@ public class MovieController {
         return "/mov/movie_login";
     }
 
-    @PostMapping("/save_move")
+    @PostMapping("/save_movie")
     public String saveCinema(@ModelAttribute Movie movie) {
         movieService.save(movie);
         return "redirect:/movie/find_all";

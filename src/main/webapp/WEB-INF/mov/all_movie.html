@@ -4,40 +4,84 @@
     <meta charset="UTF-8">
     <title>all movies</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-image: url(https://million-wallpapers.ru/wallpapers/2/90/451322782742528/oboi-chernyj-fon-iskustvo.jpg)">
+<div class="jumbotron text-center" style="height: 300px">
+    <tr style="margin-bottom: 50px">
+        <th> <img src="https://images.aif.by/007/555/1fa244fc7a4a0e1f67112359f6660366.jpg"
+                  class="img-rounded" alt="Cinque Terre" style="width: 150px; height: 100px;"></th>
 
-<table class="table" style="width: 500px; height: 300px; margin-top: 200px; margin-left: 250px">
+
+        <th> <img src="https://media.kudago.com/thumbs/l/images/list/19/8e/198e76ab4a007cccae6e2e5d2c7fa570.jpg"
+                  class="img-rounded" alt="Cinque Terre" style="width: 200px; height: 130px;"></th>
+
+
+
+        <th> <img src="https://sun9-52.userapi.com/impg/rjAb_0p4ZJbDPYuZvZZ7UjGBuJxQwVt5PCK-jQ/It5YKdZSUtM.jpg?size=807x567&quality=96&sign=a2af117f1ab4efa8b8faf96122ad1c91&type=album"
+                  class="img-rounded" alt="Cinque Terre" style="width: 250px; height: 150px; "></th>
+
+
+
+        <th> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcPp1k5vuRHL_Pijr_itSACvbo3MtgEU6ZBxVeHMUG9UDdEEp1NtEuIsXc5v9aanFY96k&usqp=CAU"
+                  class="img-rounded" alt="Cinque Terre" style="width: 200px; height: 130px; margin-bottom: 10px">
+        </th>
+
+        <th> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQykk-eJ-h9X1WBlq4a9Ffb_pTNUMUq9mKYrHoKQJXsFOILW0FToR-NaQ_R3KYL5rEOC70&usqp=CAU"
+                  class="img-rounded" alt="Cinque Terre" style="width: 150px; height: 100px">
+        </th>
+
+    </tr>
+
+    <a th:href="@{/cinema/find_all}"><h2><strong>Buy Tickers In One Click</strong></h2></a>
+    <p><small>All the latest movie premieres are waiting for you!</small></p>
+
+    <div class="btn-group" style="margin-left: 1430px">
+        <a th:href="@{/cinema/find_all}">
+            <button type="button" class="btn btn-link" style="color: darkcyan" ><strong>AllCinemas</strong></button>
+        </a>
+        <a th:href="@{/movie/find_all}" >
+            <button type="button" class="btn btn-link" style="color: darkseagreen"><strong>AllMovies</strong></button>
+        </a>
+        <a th:href="@{/session/find_all}">
+            <button type="button" class="btn btn-link" style="color: darkolivegreen"><strong>AllSessions</strong></button>
+        </a>
+        <a th:href="@{/room/find_all}">
+            <button type="button" class="btn btn-link"><strong>AllRooms</strong></button>
+        </a>
+
+    </div>
+
+
+</div>
+
+<table class="table" style="width: 900px; height: 500px; margin-top: 10px; margin-left: 250px;">
     <thead>
     <tr>
-        <th scope="col"><b>ID</b></th>
-        <th scope="col"><b>NAME</b></th>
-        <th scope="col"><b>GENRE</b></th>
-        <th scope="col"><b>CREATED</b></th>
-        <th scope="col"><b>COUNTRY</b></th>
-        <th scope="col"><b>LANGUAGE</b></th>
+        <th scope="col" style="color: aliceblue"><b>ID</b></th>
+        <th scope="col" style="color: aliceblue"><b>NAME</b></th>
+        <th scope="col" style="color: aliceblue"><b>CREATED</b></th>
+        <th scope="col" style="color: aliceblue"><b>COUNTRY</b></th>
+        <th scope="col" style="color: aliceblue"><b>LANGUAGE</b></th>
+        <th scope="col" style="color: aliceblue"><b>GENRE</b></th>
         <th>
-            <a class="btn btn-primary" th:href="save" role="button" >AddCinema</a>
-        </th>
-        <th>
-            <a href="search">
-                <button type="button" class="btn btn-outline-info">search</button>
-            </a>
+            <a class="btn btn-primary" href="save" role="button" >AddMovie</a>
         </th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="movie:${all_movie}">
-        <td th:text="${movie.id}"></td>
-        <td th:text="${movie.name}"></td>
-        <td th:text="${movie.genre}"></td>
-        <td th:text="${movie.created}"></td>
-        <td th:text="${movie.country}"></td>
-        <td th:text="${movie.language}"></td>
-        <!--        <td><a class="btn btn-primary" th:href="@{/movie/find_by_id/{id}(id=${movie.id})}" role="button" >Enter</a></td>-->
-        <!--        <td><a class="btn btn-danger" th:href="@{/cinema/update_cinema/{id}(id=${cinema.id})}" role="button" >del</a></td>-->
+        <td th:text="${movie.id}" style="color: aliceblue"></td>
+        <td th:text="${movie.name}" style="color: aliceblue"></td>
+        <td th:text="${movie.created}" style="color: aliceblue"></td>
+        <td th:text="${movie.country}" style="color: aliceblue"></td>
+        <td th:text="${movie.language}" style="color: aliceblue"></td>
+        <td th:text="${movie.genre.name()}" style="color: aliceblue"></td>
+        <td><a class="btn btn-primary" th:href="@{/session/findAllId/{id}(id=${movie.id})}" role="button" >Session</a></td>
+        <td><a class="btn btn-primary" th:href="@{/movie/update_movie/{id}(id=${movie.id})}" role="button" >Update</a></td>
+        <td><a class="btn btn-danger" th:href="@{/movie/delete/{id}(id=${movie.id})}" role="button" >Del</a></td>
     </tr>
 
     </tbody>

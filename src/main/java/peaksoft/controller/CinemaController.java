@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import peaksoft.model.Cinema;
 import peaksoft.model.Room;
 import peaksoft.service.impl.CinemaService;
+import peaksoft.service.impl.RoomService;
 
 @Controller
 @RequestMapping("/cinema")
@@ -14,9 +15,12 @@ public class CinemaController {
 
     private final CinemaService cinemaService;
 
+    private final RoomService roomService;
+
 
     @Autowired
-    public CinemaController(CinemaService cinemaService) {
+    public CinemaController(CinemaService cinemaService, RoomService roomService) {
+        this.roomService = roomService;
         this.cinemaService = cinemaService;
     }
 

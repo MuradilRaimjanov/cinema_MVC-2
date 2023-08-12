@@ -4,50 +4,71 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import peaksoft.model.Cinema;
+import peaksoft.model.Movie;
 import peaksoft.model.Session;
+import peaksoft.service.impl.MovieService;
 import peaksoft.service.impl.SessionService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/session")
 public class SessionController {
 
-    private SessionService sessionService;
+    private final SessionService sessionService;
+
+    private final MovieService movieService;
 
     @Autowired
-    public SessionController(SessionService sessionService) {
+    public SessionController(SessionService sessionService, MovieService movieService) {
         this.sessionService = sessionService;
+        this.movieService = movieService;
+    }
+
+    @ModelAttribute("movieList")
+    public List<Movie> movieList() {
+        return movieService.findAll();
     }
 
     @GetMapping("/save")
     public String save(Model model) {
-        model.addAttribute("session", new Session());
+        model.addAttribute("ses", new Session());
         return "/sess/session_login";
     }
 
     @PostMapping("/save_session")
     public String saveCinema(@ModelAttribute Session session) {
         sessionService.save(session);
-        return "redirect:/sess/find_all";
+        return "redirect:find_all";
     }
     @GetMapping("/find_all")
     public String findAll(Model model) {
         model.addAttribute("all_session", sessionService.findAll());
         return "/sess/all_session";
     }
+
+    @GetMapping("/findAllId/{id}")
+    public String findAllId(@PathVariable("id") int id, Model model) {
+        model.addAttribute("all_session_id", sessionService.findAllId(id));
+        return "/sess/all_session_id";
+    }
+
+
     @GetMapping("/find_by_id/{id}")
     public String findById(@PathVariable("id") int id, Model model) {
-        model.addAttribute("session", sessionService.findById(id));
-        return "/sess/one_session";
+        model.addAttribute("ses", sessionService.findById(id));
+        return "sess/one_session";
     }
     @GetMapping("/delete_session/{id}")
     public String deleteById(@PathVariable int id) {
         sessionService.deleteById(id);
-        return "redirect:/sess/find_all";
+        return "redirect:/session/find_all";
     }
 
     @GetMapping("/update/{movie_id}")
     public String update(@PathVariable("session_id") int id, Model model) {
-        model.addAttribute("session", sessionService.findById(id));
+        model.addAttribute("ses", sessionService.findById(id));
         return "/sess/update_session";
     }
 

@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -23,9 +24,11 @@ public class Session {
 
     private String name;
 
-    private LocalDate start;
+    private LocalDateTime start = LocalDateTime.now();
 
-    private LocalDate finish;
+    private int duration;
+
+    private LocalDateTime finish = LocalDateTime.now().plusHours(duration);
 
     @ManyToOne(cascade = {
             CascadeType.MERGE,
@@ -34,6 +37,8 @@ public class Session {
             CascadeType.REFRESH
     })@JoinColumn(name = "movie_id")
     private Movie movie;
+    @Transient
+    private int movieId;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "room",

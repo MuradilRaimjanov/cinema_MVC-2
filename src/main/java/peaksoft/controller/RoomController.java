@@ -30,6 +30,7 @@ public class RoomController {
     }
 
     @GetMapping("/save")
+
     public String save(Model model) {
         model.addAttribute("room", new Room());
         return "/room/room_login";
@@ -38,12 +39,17 @@ public class RoomController {
     @PostMapping("/save_room")
     public String saveCinema(@ModelAttribute Room room) {
         roomService.save(room);
-        return "redirect:/room/find_all";
+        return "redirect:find_all";
     }
     @GetMapping("/find_all")
     public String findAll(Model model) {
         model.addAttribute("all_room", roomService.findAll());
         return "/room/all_room";
+    }
+    @GetMapping("/findAllId/{id}")
+    public String findAllId(@PathVariable("id") int id, Model model) {
+        model.addAttribute("all_room_id", roomService.findAllId(id));
+        return "/room/all_room_id";
     }
     @GetMapping("/find_by_id/{id}")
     public String findById(@PathVariable("id") int id, Model model) {

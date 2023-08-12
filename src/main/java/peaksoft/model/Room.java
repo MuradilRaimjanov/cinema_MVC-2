@@ -29,20 +29,21 @@ public class Room {
             CascadeType.PERSIST,
             CascadeType.DETACH,
             CascadeType.REFRESH
-    })
+    }, fetch = FetchType.EAGER)
     @JoinColumn(name = "cinema_id")
     @ToString.Exclude
     private Cinema cinema;
+
+
     @Transient
     private int cinemaId;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "room")
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "room",fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<Place> places;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinTable(name = "session_and_room",
-            joinColumns = @JoinColumn(name = "session_id"), inverseJoinColumns = @JoinColumn(name = "room_id"))
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "rooms")
     private List<Session> session;
 
 }
