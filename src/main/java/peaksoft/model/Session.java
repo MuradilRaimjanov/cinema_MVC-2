@@ -40,8 +40,8 @@ public class Session {
     @Transient
     private int movieId;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "room",
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "room_and_session",
             joinColumns = @JoinColumn(name = "room_id"),
             inverseJoinColumns = @JoinColumn(name = "session_id"))
     private List<Room> rooms;

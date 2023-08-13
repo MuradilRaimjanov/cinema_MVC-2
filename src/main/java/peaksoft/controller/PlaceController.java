@@ -4,18 +4,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import peaksoft.model.Cinema;
 import peaksoft.model.Place;
+import peaksoft.model.Room;
+import peaksoft.service.impl.MovieService;
 import peaksoft.service.impl.PlaceService;
+import peaksoft.service.impl.RoomService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/place")
 public class PlaceController {
 
-    private PlaceService placeService;
+    private final PlaceService placeService;
+
+    private final RoomService roomService;
     @Autowired
-    public PlaceController(PlaceService placeService) {
+    public PlaceController(PlaceService placeService, RoomService roomService) {
         this.placeService = placeService;
+        this.roomService = roomService;
     }
+
+    @ModelAttribute("roomList")
+    public List<Room> roomList() {
+        return roomService.findAll();
+    }
+
 
     @GetMapping("/save")
     public String save(Model model) {
@@ -39,7 +54,7 @@ public class PlaceController {
         model.addAttribute("place", placeService.findById(id));
         return "/plac/one_place";
     }
-    @GetMapping("/delete_movie/{id}")
+    @GetMapping("/delete_place/{id}")
     public String deleteById(@PathVariable int id) {
         placeService.deleteById(id);
         return "redirect:/place/find_all";
@@ -55,5 +70,9 @@ public class PlaceController {
     public String mergeUpdate(@ModelAttribute Place place, @PathVariable int id){
         placeService.update(id, place);
         return "redirect:/place/find_all";
+    }
+    @GetMapping("/buy")
+    public String buy(){
+        return "/plac/buy";
     }
 }

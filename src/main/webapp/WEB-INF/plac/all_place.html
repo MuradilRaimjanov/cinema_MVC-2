@@ -63,7 +63,7 @@
         <th scope="col" style="color: aliceblue"><b>X</b></th>
         <th scope="col" style="color: aliceblue"><b>Y</b></th>
         <th scope="col" style="color: aliceblue"><b>PRICE</b></th>
-        <th scope="col" style="color: aliceblue"><b>ROOM</b></th>
+        <th scope="col" style="color: aliceblue"><b>BUY</b></th>
         <th>
             <a class="btn btn-primary" th:href="@{save}" role="button" >AddPlace</a>
         </th>
@@ -75,9 +75,8 @@
         <td th:text="${place.x}" style="color: aliceblue"></td>
         <td th:text="${place.y}" style="color: aliceblue"></td>
         <td th:text="${place.price}" style="color: aliceblue"></td>
-        <td th:text="${place.room}" style="color: aliceblue"></td>
-        <td><a class="btn btn-primary" th:href="@{/place/find_by_id/{id}(id=${place.id})}" role="button" >Enter</a></td>
-        <!--        <td><a class="btn btn-danger" th:href="@{/cinema/update_cinema/{id}(id=${cinema.id})}" role="button" >del</a></td>-->
+        <td><a class="btn btn-primary" th:href="@{/place/buy}" role="button" ><strong>Buy</strong></a></td>
+        <td><a class="btn btn-danger" th:href="@{/place/delete_place/{id}(id=${place.id})}" role="button" ><strong>Del</strong></a></td>
     </tr>
 
     </tbody>

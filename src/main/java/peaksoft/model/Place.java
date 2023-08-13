@@ -31,4 +31,6 @@ public class Place {
     },fetch = FetchType.EAGER)
     @JoinColumn(name = "room_id")
     private Room room;
+    @Transient
+    private int roomId;
 }

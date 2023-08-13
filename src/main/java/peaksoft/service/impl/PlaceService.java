@@ -4,7 +4,9 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import peaksoft.model.Cinema;
 import peaksoft.model.Place;
+import peaksoft.model.Room;
 import peaksoft.service.ServiceLayer;
 
 import java.util.List;
@@ -16,6 +18,8 @@ public class PlaceService implements ServiceLayer<Place> {
     private EntityManager entityManager;
     @Override
     public Place save(Place place) {
+        Room room = entityManager.find(Room.class, place.getRoomId());
+        place.setRoom(room);
         entityManager.persist(place);
         return place;
     }
