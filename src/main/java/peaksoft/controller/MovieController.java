@@ -56,6 +56,12 @@ public class MovieController {
         return "redirect:/movie/find_all";
     }
 
+    @GetMapping ("/find_by_name")
+    public String findByName(Model model, @RequestParam(value = "text") String name) {
+        model.addAttribute("movie", movieService.findByName(name));
+        return "/mov/movie_by_name";
+    }
+
 
 }
 

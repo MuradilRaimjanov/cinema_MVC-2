@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import peaksoft.model.Cinema;
 import peaksoft.model.Movie;
+import peaksoft.model.Room;
 import peaksoft.model.Session;
 import peaksoft.service.impl.MovieService;
+import peaksoft.service.impl.RoomService;
 import peaksoft.service.impl.SessionService;
 
 import java.util.List;
@@ -20,15 +22,23 @@ public class SessionController {
 
     private final MovieService movieService;
 
+    private final RoomService roomService;
+
     @Autowired
-    public SessionController(SessionService sessionService, MovieService movieService) {
+    public SessionController(SessionService sessionService, MovieService movieService, RoomService roomService) {
         this.sessionService = sessionService;
         this.movieService = movieService;
+        this.roomService = roomService;
     }
 
     @ModelAttribute("movieList")
     public List<Movie> movieList() {
         return movieService.findAll();
+    }
+
+    @ModelAttribute("roomList")
+    public List<Room> roomList() {
+        return roomService.findAll();
     }
 
     @GetMapping("/save")

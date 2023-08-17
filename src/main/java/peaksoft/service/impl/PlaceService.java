@@ -31,6 +31,7 @@ public class PlaceService implements ServiceLayer<Place> {
     public List<Place> findAll() {
         return (List<Place>) entityManager.createQuery("from Place").getResultList();
     }
+
     @Override
     public Place update(int id, Place place) {
         Place oldPlace = entityManager.find(Place.class, id);
@@ -43,5 +44,14 @@ public class PlaceService implements ServiceLayer<Place> {
     @Override
     public void deleteById(int id) {
         entityManager.remove(entityManager.find(Place.class, id));
+    }
+
+    public List<Place> findAllId(int id) {
+        return (List<Place>) entityManager.createQuery("from Place p where p.room.id =:id", Place.class).setParameter("id", id).getResultList();
+    }
+
+    @Override
+    public Place findByName(String name) {
+        return null;
     }
 }

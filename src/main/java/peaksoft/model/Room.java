@@ -46,4 +46,5 @@ public class Room {
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "rooms")
     private List<Session> session;
 
+
 }

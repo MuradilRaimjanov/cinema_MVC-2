@@ -37,26 +37,29 @@
     <a th:href="@{/cinema/find_all}"><h2><strong>Buy Tickers In One Click</strong></h2></a>
     <p><small>All the latest movie premieres are waiting for you!</small></p>
 
-    <div class="btn-group" style="margin-left: 1430px">
+    <div class="btn-group" style="margin-left: 1330px">
         <a th:href="@{/cinema/find_all}">
-            <button type="button" class="btn btn-link" style="color: darkcyan" ><strong>AllCinemas</strong></button>
+            <button type="button" class="btn btn-link" style="color: darkcyan"><strong>AllCinemas</strong></button>
         </a>
-        <a th:href="@{/movie/find_all}" >
+        <a th:href="@{/movie/find_all}">
             <button type="button" class="btn btn-link" style="color: darkseagreen"><strong>AllMovies</strong></button>
         </a>
+        <a th:href="@{/place/find_all}">
+            <button type="button" class="btn btn-link" style="color: darkgrey"><strong>AllPlaces</strong></button>
+        </a>
         <a th:href="@{/session/find_all}">
-            <button type="button" class="btn btn-link" style="color: darkolivegreen"><strong>AllSessions</strong></button>
+            <button type="button" class="btn btn-link" style="color: darkolivegreen"><strong>AllSessions</strong>
+            </button>
         </a>
         <a th:href="@{/room/find_all}">
             <button type="button" class="btn btn-link"><strong>AllRooms</strong></button>
         </a>
-
     </div>
 
 
 </div>
 
-<table class="table" style="width: 500px; height: 300px; margin-top: 200px; margin-left: 250px">
+<table class="table" style="width: 900px; height: 500px; margin-top: 10px; margin-left: 250px;">
     <thead>
     <tr>
         <th scope="col" style="color: aliceblue"><b>ID</b></th>

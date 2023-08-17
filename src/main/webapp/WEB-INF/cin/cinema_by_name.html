@@ -62,27 +62,50 @@
     </a>
   </div>
 
+</div>
+
+<table class="table" style="width: 900px; height: 500px; margin-top: 10px; margin-left: 250px;">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col" style="color: aliceblue"><b>ID</b></th>
+    <th scope="col" style="color: aliceblue"><b>NAME</b></th>
+    <th scope="col" style="color: aliceblue"><b>ADDRESS</b></th>
+    <th scope="col" style="color: aliceblue"><b>ROOMS</b></th>
+    <th>
+      <a class="btn btn-primary" th:href="@{/cinema/save}" role="button" >AddCinema</a>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr >
+    <td th:text="${cinema.id}" style="color: aliceblue"></td>
+    <td th:text="${cinema.name}" style="color: aliceblue"></td>
+    <td th:text="${cinema.address}" style="color: aliceblue"></td>
+    <!--        <td th:text="${cinema.rooms}"></td>-->
+    <td>
+      <form>
+        <a class="btn btn-success" th:href="@{/room/findAllId/{id}(id=${cinema.id})}" role="button" ><strong>ROOMS</strong></a>
+      </form>
+    </td>
+    <td>
+      <form>
+        <a class="btn btn-success" th:href="@{/cinema/update/{id}(id=${cinema.id})}" role="button" ><strong>UPDATE</strong></a>
+      </form>
+    </td>
+    <td>
+      <form>
+        <a class="btn btn-success" th:href="@{/session/find_all}" role="button" ><strong>ENTER</strong></a>
+      </form>
+    </td>
+    <td>
+      <a class="btn btn-danger" th:href="@{/cinema/delete_cinema/{id}(id=${cinema.id})}" role="button" ><strong>DEL</strong></a>
+    </td>
+  </tr>
+
+  </tbody>
+
+</table>
 
 </div>
-  <form
-          th:method="post"
-          th:action="@{/session/merge_update/{id}(id=${session.id})}"
-          th:object="${ses}"
-          style="width: 500px; height: 300px; margin-top: 200px; margin-left: 300px">
-    <div class="form-group">
-      <label for="1">Session</label>
-      <input th:field="${ses.name}" type="text" class="form-control" id="1" aria-describedby="emailHelp" placeholder="Name">
-    </div>
-    <div class="form-group">
-      <label for="2" >Start</label>
-      <input th:field="${ses.getStart()}" type="text" class="form-control" id="2" placeholder="data of start">
-    </div>
-    <div class="form-group">
-      <label for="3" >Finish</label>
-      <input th:field="${ses.getFinish()}" type="text" class="form-control" id="3" placeholder="data of finish">
-    </div>
-
-    <button type="submit"  class="btn btn-primary">Submit</button>
-  </form>
-  </body>
-  </html>
+</body>
+</html>

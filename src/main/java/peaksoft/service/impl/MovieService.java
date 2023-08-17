@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import peaksoft.model.Cinema;
 import peaksoft.model.Movie;
 import peaksoft.service.ServiceLayer;
 
@@ -42,5 +43,10 @@ public class MovieService implements ServiceLayer<Movie> {
     public void deleteById(int id) {
         entityManager.remove(entityManager.find(Movie.class, id));
 
+    }
+
+    @Override
+    public Movie findByName(String name) {
+        return entityManager.createQuery("from Movie m where m.name = :nameOfMovie", Movie.class).setParameter("nameOfMovie", name).getSingleResult();
     }
 }

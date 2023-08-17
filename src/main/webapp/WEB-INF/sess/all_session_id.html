@@ -43,20 +43,23 @@
     <a th:href="@{/cinema/find_all}"><h2><strong>Buy Tickers In One Click</strong></h2></a>
     <p><small>All the latest movie premieres are waiting for you!</small></p>
 
-    <div class="btn-group" style="margin-left: 1430px">
+    <div class="btn-group" style="margin-left: 1330px">
         <a th:href="@{/cinema/find_all}">
-            <button type="button" class="btn btn-link" style="color: darkcyan" ><strong>AllCinemas</strong></button>
+            <button type="button" class="btn btn-link" style="color: darkcyan"><strong>AllCinemas</strong></button>
         </a>
-        <a th:href="@{/movie/find_all}" >
+        <a th:href="@{/movie/find_all}">
             <button type="button" class="btn btn-link" style="color: darkseagreen"><strong>AllMovies</strong></button>
         </a>
+        <a th:href="@{/place/find_all}">
+            <button type="button" class="btn btn-link" style="color: darkgrey"><strong>AllPlaces</strong></button>
+        </a>
         <a th:href="@{/session/find_all}">
-            <button type="button" class="btn btn-link" style="color: darkolivegreen"><strong>AllSessions</strong></button>
+            <button type="button" class="btn btn-link" style="color: darkolivegreen"><strong>AllSessions</strong>
+            </button>
         </a>
         <a th:href="@{/room/find_all}">
             <button type="button" class="btn btn-link"><strong>AllRooms</strong></button>
         </a>
-
     </div>
 
 
@@ -71,7 +74,7 @@
         <th scope="col" style="color: aliceblue"><b>DURATION</b></th>
         <th scope="col" style="color: aliceblue"><b>MOVIE</b></th>
         <th>
-            <a class="btn btn-primary" th:href="save" role="button" >AddSession</a>
+            <a class="btn btn-primary" th:href="@{/session/save}" role="button" >AddSession</a>
         </th>
     </tr>
     </thead>
@@ -82,23 +85,23 @@
         <td th:text="${s.start}" style="color: aliceblue"></td>
         <td th:text="${s.finish}" style="color: aliceblue"></td>
         <td th:text="${s.duration}" style="color: aliceblue"></td>
+<!--        <td>-->
+<!--            <form>-->
+<!--                <a class="btn btn-success" th:href="@{/movie/find_all}" role="button" ><strong>MOVIES</strong></a>-->
+<!--            </form>-->
+<!--        </td>-->
         <td>
             <form>
-                <a class="btn btn-success" th:href="@{/movie/find_all}" role="button" ><strong>MOVIES</strong></a>
+                <a class="btn btn-primary" th:href="@{/movie/find_all}" role="button" ><strong>Movie</strong></a>
+            </form>
+        <td>
+            <form>
+                <a class="btn btn-success" th:href="@{/session/update/{id}(id=${s.id})}" role="button" ><strong>Update</strong></a>
             </form>
         </td>
         <td>
             <form>
-                <a class="btn btn-primary" th:href="@{/session/find_by_id/{id}(id=${s.id})}" role="button" >Enter</a>
-            </form>
-        <td>
-            <form>
-                <a class="btn btn-success" th:href="@{/session/update/{id}(id=${s.id})}" role="button" ><strong>UPDATE</strong></a>
-            </form>
-        </td>
-        <td>
-            <form>
-                <a class="btn btn-danger" th:href="@{/session/delete_session/{id}(id=${s.id})}" role="button" ><strong>DEL</strong></a>
+                <a class="btn btn-danger" th:href="@{/session/delete_session/{id}(id=${s.id})}" role="button" ><strong>Del</strong></a>
             </form>
         </td>
     </tr>

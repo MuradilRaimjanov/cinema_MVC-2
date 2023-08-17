@@ -45,5 +45,7 @@ public class Session {
             joinColumns = @JoinColumn(name = "room_id"),
             inverseJoinColumns = @JoinColumn(name = "session_id"))
     private List<Room> rooms;
+    @Transient
+    private int roomId;
 }
 

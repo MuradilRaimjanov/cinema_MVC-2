@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th = "http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>all_cinema</title>
 
     <link rel="stylesheet" href="mainCss.css">
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"-->
-<!--          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"-->
+    <!--          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -16,26 +16,27 @@
 <div class="jumbotron text-center" style="height: 300px">
 
     <tr style="margin-bottom: 50px">
-        <th> <img src="https://images.aif.by/007/555/1fa244fc7a4a0e1f67112359f6660366.jpg"
-                  class="img-rounded" alt="Cinque Terre" style="width: 150px; height: 100px;"></th>
+        <th><img src="https://images.aif.by/007/555/1fa244fc7a4a0e1f67112359f6660366.jpg"
+                 class="img-rounded" alt="Cinque Terre" style="width: 150px; height: 100px;"></th>
 
 
-        <th> <img src="https://media.kudago.com/thumbs/l/images/list/19/8e/198e76ab4a007cccae6e2e5d2c7fa570.jpg"
-                  class="img-rounded" alt="Cinque Terre" style="width: 200px; height: 130px;"></th>
+        <th><img src="https://media.kudago.com/thumbs/l/images/list/19/8e/198e76ab4a007cccae6e2e5d2c7fa570.jpg"
+                 class="img-rounded" alt="Cinque Terre" style="width: 200px; height: 130px;"></th>
 
 
+        <th><img
+                src="https://sun9-52.userapi.com/impg/rjAb_0p4ZJbDPYuZvZZ7UjGBuJxQwVt5PCK-jQ/It5YKdZSUtM.jpg?size=807x567&quality=96&sign=a2af117f1ab4efa8b8faf96122ad1c91&type=album"
+                class="img-rounded" alt="Cinque Terre" style="width: 250px; height: 150px; "></th>
 
-        <th> <img src="https://sun9-52.userapi.com/impg/rjAb_0p4ZJbDPYuZvZZ7UjGBuJxQwVt5PCK-jQ/It5YKdZSUtM.jpg?size=807x567&quality=96&sign=a2af117f1ab4efa8b8faf96122ad1c91&type=album"
-                  class="img-rounded" alt="Cinque Terre" style="width: 250px; height: 150px; "></th>
 
-
-
-        <th> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcPp1k5vuRHL_Pijr_itSACvbo3MtgEU6ZBxVeHMUG9UDdEEp1NtEuIsXc5v9aanFY96k&usqp=CAU"
-                  class="img-rounded" alt="Cinque Terre" style="width: 200px; height: 130px; margin-bottom: 10px">
+        <th><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcPp1k5vuRHL_Pijr_itSACvbo3MtgEU6ZBxVeHMUG9UDdEEp1NtEuIsXc5v9aanFY96k&usqp=CAU"
+                class="img-rounded" alt="Cinque Terre" style="width: 200px; height: 130px; margin-bottom: 10px">
         </th>
 
-        <th> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQykk-eJ-h9X1WBlq4a9Ffb_pTNUMUq9mKYrHoKQJXsFOILW0FToR-NaQ_R3KYL5rEOC70&usqp=CAU"
-                  class="img-rounded" alt="Cinque Terre" style="width: 150px; height: 100px">
+        <th><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQykk-eJ-h9X1WBlq4a9Ffb_pTNUMUq9mKYrHoKQJXsFOILW0FToR-NaQ_R3KYL5rEOC70&usqp=CAU"
+                class="img-rounded" alt="Cinque Terre" style="width: 150px; height: 100px">
         </th>
 
     </tr>
@@ -43,25 +44,42 @@
     <a th:href="@{/cinema/find_all}"><h2><strong>Buy Tickers In One Click</strong></h2></a>
     <p><small>All the latest movie premieres are waiting for you!</small></p>
 
-    <div class="btn-group" style="margin-left: 1430px">
+
+    <div class="btn-group" style="margin-left: 1360px;">
         <a th:href="@{/cinema/find_all}">
-            <button type="button" class="btn btn-link" style="color: darkcyan" ><strong>AllCinemas</strong></button>
+            <button type="button" class="btn btn-link" style="color: darkcyan"><strong>AllCinemas</strong></button>
         </a>
-        <a th:href="@{/movie/find_all}" >
+        <a th:href="@{/movie/find_all}">
             <button type="button" class="btn btn-link" style="color: darkseagreen"><strong>AllMovies</strong></button>
         </a>
+        <a th:href="@{/place/find_all}">
+            <button type="button" class="btn btn-link" style="color: darkgrey"><strong>AllPlaces</strong></button>
+        </a>
         <a th:href="@{/session/find_all}">
-            <button type="button" class="btn btn-link" style="color: darkolivegreen"><strong>AllSessions</strong></button>
+            <button type="button" class="btn btn-link" style="color: darkolivegreen"><strong>AllSessions</strong>
+            </button>
         </a>
         <a th:href="@{/room/find_all}">
             <button type="button" class="btn btn-link"><strong>AllRooms</strong></button>
         </a>
-
     </div>
 
 </div>
 
-<table class="table" style="width: 900px; height: 500px; margin-top: 10px; margin-left: 250px;">
+    <div style="margin-left: 1620px; width: 250px; margin-top: 40px">
+        <form
+                th:method="get"
+                th:action="@{/cinema/find_by_name}">
+            <div class="form-group">
+                        <input  type="text" class="form-control" id="11" name="text"
+                                aria-describedby="emailHelp" placeholder="name of cinema">
+
+                        <button type="submit" class="btn btn-link" style="margin-left: 176px;"><strong>Search</strong></button>
+            </div>
+        </form>
+    </div>
+
+<table class="table" style="width: 900px; height: 500px; margin-left: 250px;">
     <thead class="thead-dark">
     <tr>
         <th scope="col" style="color: aliceblue"><b>ID</b></th>
@@ -69,7 +87,7 @@
         <th scope="col" style="color: aliceblue"><b>ADDRESS</b></th>
         <th scope="col" style="color: aliceblue"><b>ROOMS</b></th>
         <th>
-            <a class="btn btn-primary" th:href="@{/cinema/save}" role="button" >AddCinema</a>
+            <a class="btn btn-primary" th:href="@{/cinema/save}" role="button">AddCinema</a>
         </th>
     </tr>
     </thead>
@@ -78,24 +96,20 @@
         <td th:text="${cinema.id}" style="color: aliceblue"></td>
         <td th:text="${cinema.name}" style="color: aliceblue"></td>
         <td th:text="${cinema.address}" style="color: aliceblue"></td>
-<!--        <td th:text="${cinema.rooms}"></td>-->
+        <!--        <td th:text="${cinema.rooms}"></td>-->
         <td>
             <form>
-                <a class="btn btn-success" th:href="@{/room/findAllId/{id}(id=${cinema.id})}" role="button" ><strong>ROOMS</strong></a>
+                <a class="btn btn-success" th:href="@{/room/findAllId/{id}(id=${cinema.id})}" role="button"><strong>ROOMS</strong></a>
             </form>
         </td>
         <td>
             <form>
-                <a class="btn btn-success" th:href="@{/cinema/update/{id}(id=${cinema.id})}" role="button" ><strong>UPDATE</strong></a>
+                <a class="btn btn-primary" th:href="@{/cinema/update/{id}(id=${cinema.id})}" role="button"><strong>UPDATE</strong></a>
             </form>
         </td>
         <td>
-            <form>
-                <a class="btn btn-success" th:href="@{/session/find_all}" role="button" ><strong>ENTER</strong></a>
-            </form>
-        </td>
-        <td>
-            <a class="btn btn-danger" th:href="@{/cinema/delete_cinema/{id}(id=${cinema.id})}" role="button" ><strong>DEL</strong></a>
+            <a class="btn btn-danger" th:href="@{/cinema/delete_cinema/{id}(id=${cinema.id})}"
+               role="button"><strong>DEL</strong></a>
         </td>
     </tr>
 

@@ -24,9 +24,7 @@ public class Cinema {
 
     private String address;
 
-
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "cinema")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "cinema")
     @ToString.Exclude
     private List<Room> rooms;
-
 }

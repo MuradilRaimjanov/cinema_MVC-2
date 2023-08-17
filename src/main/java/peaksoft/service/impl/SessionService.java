@@ -49,4 +49,9 @@ public class SessionService implements ServiceLayer<Session> {
     public void deleteById(int id) {
         entityManager.remove(entityManager.find(Session.class, id));
     }
+
+    @Override
+    public Session findByName(String name) {
+        return null;
+    }
 }

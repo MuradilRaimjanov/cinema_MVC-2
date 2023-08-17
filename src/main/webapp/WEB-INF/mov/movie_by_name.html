@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th = "http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>one cinema</title>
+    <title>one movie</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -62,18 +62,25 @@
 <table class="table" style="width: 900px; height: 500px; margin-top: 10px; margin-left: 250px;">
     <thead>
     <tr>
-        <th scope="col"><b>ID</b></th>
-        <th scope="col"><b>NAME</b></th>
-        <th scope="col"><b>ADDRESS</b></th>
-        <th scope="col"><b>ROOMS</b></th>
+        <th scope="col" style="color: aliceblue"><b>ID</b></th>
+        <th scope="col" style="color: aliceblue"><b>NAME</b></th>
+        <th scope="col" style="color: aliceblue"><b>GENRE</b></th>
+        <th scope="col" style="color: aliceblue"><b>CREATED</b></th>
+        <th scope="col" style="color: aliceblue"><b>COUNTRY</b></th>
+        <th scope="col" style="color: aliceblue"><b>LANGUAGE</b></th>
     </tr>
     </thead>
     <tbody>
     <tr >
-        <td th:text="${cinema.id}"></td>
-        <td th:text="${cinema.name}"></td>
-        <td th:text="${cinema.address}"></td>
-        <td th:text="${cinema.rooms}"></td>
+        <td th:text="${movie.id}" style="color: aliceblue"></td>
+        <td th:text="${movie.name}" style="color: aliceblue"></td>
+        <td th:text="${movie.genre}" style="color: aliceblue"></td>
+        <td th:text="${movie.created}" style="color: aliceblue"></td>
+        <td th:text="${movie.country}" style="color: aliceblue"></td>
+        <td th:text="${movie.language}" style="color: aliceblue"></td>
+        <td><a class="btn btn-success" th:href="@{/session/findAllId/{id}(id=${movie.id})}" role="button" >Session</a></td>
+        <td><a class="btn btn-primary" th:href="@{/movie/update/{id}(id=${movie.id})}" role="button" >Update</a></td>
+        <td><a class="btn btn-danger" th:href="@{/movie/delete/{id}(id=${movie.id})}" role="button" >Del</a></td>
     </tr>
 
     </tbody>

@@ -37,46 +37,46 @@
     <a th:href="@{/cinema/find_all}"><h2><strong>Buy Tickers In One Click</strong></h2></a>
     <p><small>All the latest movie premieres are waiting for you!</small></p>
 
-    <div class="btn-group" style="margin-left: 1430px">
+    <div class="btn-group" style="margin-left: 1330px">
         <a th:href="@{/cinema/find_all}">
-            <button type="button" class="btn btn-link" style="color: darkcyan" ><strong>AllCinemas</strong></button>
+            <button type="button" class="btn btn-link" style="color: darkcyan"><strong>AllCinemas</strong></button>
         </a>
-        <a th:href="@{/movie/find_all}" >
+        <a th:href="@{/movie/find_all}">
             <button type="button" class="btn btn-link" style="color: darkseagreen"><strong>AllMovies</strong></button>
         </a>
+        <a th:href="@{/place/find_all}">
+            <button type="button" class="btn btn-link" style="color: darkgrey"><strong>AllPlaces</strong></button>
+        </a>
         <a th:href="@{/session/find_all}">
-            <button type="button" class="btn btn-link" style="color: darkolivegreen"><strong>AllSessions</strong></button>
+            <button type="button" class="btn btn-link" style="color: darkolivegreen"><strong>AllSessions</strong>
+            </button>
         </a>
         <a th:href="@{/room/find_all}">
             <button type="button" class="btn btn-link"><strong>AllRooms</strong></button>
         </a>
-
     </div>
 
 
 </div>
 <form
         th:method="post"
-        th:action="@{/place/save_place/{id}(id=${place.id})}"
+        th:action="@{/place/merge_update/{id}(id=${place.id})}"
         th:object="${place}"
-        style="width: 500px; height: 300px; margin-top: 200px; margin-left: 300px">
+        style="width: 500px; height: 300px; margin-top: 10px; margin-left: 300px">
     <div class="form-group">
-        <label for="1">X-vertical</label>
+        <label for="1" style="color: aliceblue">X-vertical</label>
         <input th:field="${place.x}" type="text" class="form-control" id="1" aria-describedby="emailHelp" placeholder="Name">
     </div>
     <div class="form-group">
-        <label for="2" >Y-horizontal</label>
+        <label for="2" style="color: aliceblue">Y-horizontal</label>
         <input th:field="${place.y}" type="text" class="form-control" id="2" placeholder="Address">
     </div>
     <div class="form-group">
-        <label for="3" >Price</label>
+        <label for="3" style="color: aliceblue">Price</label>
         <input th:field="${place.price}" type="text" class="form-control" id="3" placeholder="Rooms">
     </div>
-    <div class="form-group">
-        <label for="4" >Room</label>
-        <input th:field="${place.room}" type="text" class="form-control" id="4" placeholder="Rooms">
-    </div>
-    <button type="submit"  class="btn btn-primary">Submit</button>
+        <button type="submit"  class="btn btn-primary" style="margin-left: 430px; margin-top: 30px">Submit</button>
+
 </form>
 </body>
 </html>

@@ -73,4 +73,10 @@ public class RoomController {
         roomService.update(id, room);
         return "redirect:/room/find_all";
     }
+
+    @GetMapping ("/find_by_name")
+    public String findByName(Model model, @RequestParam(value = "text") String name) {
+        model.addAttribute("movie", roomService.findByName(name));
+        return "/mov/movie_by_name";
+    }
 }

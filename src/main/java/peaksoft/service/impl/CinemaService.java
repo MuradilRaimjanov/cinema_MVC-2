@@ -40,4 +40,10 @@ public class CinemaService implements ServiceLayer<Cinema> {
     public void deleteById(int id) {
         entityManager.remove(entityManager.find(Cinema.class, id));
     }
+
+    @Override
+    public Cinema findByName(String name) {
+        return entityManager.createQuery("from Cinema c where c.name = :nameOfCinema", Cinema.class).setParameter("nameOfCinema", name).getSingleResult();
+    }
+
 }

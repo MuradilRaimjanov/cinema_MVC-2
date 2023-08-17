@@ -6,6 +6,7 @@ import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import peaksoft.model.Cinema;
+import peaksoft.model.Movie;
 import peaksoft.model.Room;
 import peaksoft.service.ServiceLayer;
 
@@ -50,7 +51,14 @@ public class RoomService implements ServiceLayer<Room> {
 
     @Override
     public void deleteById(int id) {
-        entityManager.remove(entityManager.find(Room.class, id));
+        Room room = entityManager.find(Room.class,id);
+        room.setCinema(null);
+        entityManager.remove(room);
+    }
+
+    @Override
+    public Room findByName(String name) {
+        return entityManager.createQuery("from Room r where r.name = :nameOfRoom", Room.class).setParameter("nameOfRoom", name).getSingleResult();
     }
 }
 

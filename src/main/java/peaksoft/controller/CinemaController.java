@@ -39,7 +39,7 @@ public class CinemaController {
     @GetMapping("/find_all")
     public String findAll(Model model) {
         model.addAttribute("all_cinema", cinemaService.findAll());
-        return "cin/all_cinema";
+        return "/cin/all_cinema";
     }
     @GetMapping("/find_by_id/{id}")
     public String findById(@PathVariable("id") int id, Model model) {
@@ -62,6 +62,11 @@ public class CinemaController {
     public String mergeUpdate(@ModelAttribute Cinema cinema, @PathVariable int id){
         cinemaService.update(id, cinema);
         return "redirect:/cinema/find_all";
+    }
+    @GetMapping ("/find_by_name")
+    public String findByName(Model model, @RequestParam(value = "text") String name) {
+        model.addAttribute("cinema", cinemaService.findByName(name));
+        return "/cin/cinema_by_name";
     }
 
 }

@@ -14,5 +14,7 @@ public interface ServiceLayer <T>{
 
     void deleteById(int id);
 
+    T findByName(String name);
+
 
 }

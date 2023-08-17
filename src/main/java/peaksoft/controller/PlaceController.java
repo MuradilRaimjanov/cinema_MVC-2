@@ -75,4 +75,11 @@ public class PlaceController {
     public String buy(){
         return "/plac/buy";
     }
+
+
+    @GetMapping("/findAllId/{id}")
+    public String findAllId(@PathVariable("id") int id, Model model) {
+        model.addAttribute("all_places", placeService.findAllId(id));
+        return "/plac/all_place_id";
+    }
 }
