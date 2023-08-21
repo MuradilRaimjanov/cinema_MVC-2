@@ -23,7 +23,10 @@ public class CinemaController {
         this.roomService = roomService;
         this.cinemaService = cinemaService;
     }
-
+    @GetMapping("/main_page")
+    public String mainPage(){
+        return "/cin/main_page";
+    }
 
     @GetMapping("/save")
     public String save(Model model) {

@@ -28,12 +28,7 @@ public class Movie {
     private String language;
 
 
-    @OneToMany(cascade = {
-            CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.PERSIST,
-            CascadeType.REFRESH
-    },fetch = FetchType.LAZY,mappedBy = "movie")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "movie")
     private List<Session> sessions;
 
 }
