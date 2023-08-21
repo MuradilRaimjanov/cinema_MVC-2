@@ -12,6 +12,7 @@ import peaksoft.service.impl.MovieService;
 import peaksoft.service.impl.RoomService;
 import peaksoft.service.impl.SessionService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -43,12 +44,14 @@ public class SessionController {
 
     @GetMapping("/save")
     public String save(Model model) {
-        model.addAttribute("ses", new Session());
+        Session session = new Session();
+        model.addAttribute("ses", session);
         return "/sess/session_login";
     }
 
     @PostMapping("/save_session")
     public String saveCinema(@ModelAttribute Session session) {
+        session.setFinish(LocalDateTime.now().plusHours(session.getDuration()));
         sessionService.save(session);
         return "redirect:find_all";
     }

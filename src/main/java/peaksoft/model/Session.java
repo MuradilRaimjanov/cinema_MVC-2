@@ -26,9 +26,9 @@ public class Session {
 
     private LocalDateTime start = LocalDateTime.now();
 
-    private Long duration;
+    private int duration;
 
-    private LocalDateTime finish = start.plusHours(duration);
+    private LocalDateTime finish;
 
     @ManyToOne(cascade = {
             CascadeType.MERGE,
